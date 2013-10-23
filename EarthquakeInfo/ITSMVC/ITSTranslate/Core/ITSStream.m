@@ -155,18 +155,12 @@
 
 -(void)execute:(dispatch_block_t)block
 {
-    if (dispatch_get_current_queue() == streamQueue)
-        block();
-    else
-        dispatch_sync(streamQueue, block);
+    dispatch_sync(streamQueue, block);
 }
 
 -(void)schedule:(dispatch_block_t)block
 {
-    if (dispatch_get_current_queue() == streamQueue)
-        block();
-    else
-        dispatch_async(streamQueue, block);
+    dispatch_async(streamQueue, block);
 }
 
 @end

@@ -9,6 +9,9 @@
 #import "QuakeListViewController.h"
 #import "QuakeListQueue.h"
 #import "QuakeQueryRequest.h"
+#import "QuakeFeaturesResponse.h"
+
+#import "QuakeCell.h"
 
 @interface QuakeListViewController ()
 {
@@ -23,27 +26,54 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self setupHttpQueue];
+    }
+    return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setupHttpQueue];
+    }
+    return self;
+}
+
+-(void)dealloc
+{
+    [self destoryHttpQueue];
+}
+
+#pragma mark - 绑定请求应答通知
+
+- (void)setupHttpQueue
+{
+    quakeListControl = [[QuakeListQueue alloc] init];
+    [[ITSTransManager defaultManager] add:quakeListControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (quakeListControl)
+        [[ITSTransManager defaultManager] remove:quakeListControl];
+    quakeListControl = nil;
+}
+
+#pragma mark - life cycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    quakeListControl = [[QuakeListQueue alloc] init];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     
     [self requestList];
 }
@@ -58,24 +88,27 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    if (self.datasource == nil || ((QuakeFeaturesResponse *)self.datasource).features == nil)
+        return 0;
+    else
+        return [((QuakeFeaturesResponse *)self.datasource).features count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"QuakeCell";
     
-    // Configure the cell...
+    QuakeCell *cell = (QuakeCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[QuakeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    [cell updateDisplayUI:((QuakeFeaturesResponse *)self.datasource).features[indexPath.row]];
     
     return cell;
 }
@@ -134,19 +167,24 @@
 - (void)requestList
 {
     QuakeQueryRequest *request = [[QuakeQueryRequest alloc] init];
-    request.minmag = 6;
+    request.minmag = 4.9;
 
     NSDateFormatter *dateFormate = [[NSDateFormatter alloc] init];
     dateFormate.dateFormat = @"yyyy-MM-dd";
-    request.starttime = [dateFormate dateFromString:@"2008-05-12"];
-    request.endtime = [dateFormate dateFromString:@"2008-05-13"];
+    request.starttime = [dateFormate dateFromString:@"2013-09-22"];
+    request.endtime = [dateFormate dateFromString:@"2013-10-22"];
     
     [quakeListControl sendRequest:request target:self selector:@selector(displayUI:)];
 }
 
 - (void)displayUI:(id)note
 {
+    if (![note isKindOfClass:[QuakeFeaturesResponse class]])
+        return;
     
+    self.datasource = note;
+    
+    [self.tableView reloadData];
 }
 
 @end

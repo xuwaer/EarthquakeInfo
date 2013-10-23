@@ -218,11 +218,11 @@
     
     dispatch_block_t block = ^{@autoreleasepool{
         
+        DDLogVerbose(@"%@", [opt responseString]);
+        
         //接收到数据后，完成解析操作。解析操作均在解析线程中执行
         MKNetworkOperationExt *optExt = (MKNetworkOperationExt *)opt;
-        [self request:optExt parse:[optExt responseData] requestBeanTag:optExt.tag];
-        
-        DDLogVerbose(@"response:\n%@", [optExt responseString]);
+        [self request:optExt parse:[optExt responseData] requestBeanTag:optExt.tag];        
     }};
 
 //    if (dispatch_get_current_queue() == parseQueue)

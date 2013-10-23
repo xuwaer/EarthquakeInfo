@@ -10,4 +10,6 @@
 
 @interface QuakeListViewController : UITableViewController
 
+@property (nonatomic, strong) id datasource;
+
 @end

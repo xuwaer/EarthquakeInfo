@@ -16,7 +16,6 @@
 		394C705A1814F9720006AD91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394C70581814F9720006AD91 /* Main.storyboard */; };
 		394C705D1814F9720006AD91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C705C1814F9720006AD91 /* ViewController.m */; };
 		394C705F1814F9720006AD91 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394C705E1814F9720006AD91 /* Images.xcassets */; };
-		394C70661814F9720006AD91 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394C70651814F9720006AD91 /* XCTest.framework */; };
 		394C70671814F9720006AD91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394C70461814F9720006AD91 /* Foundation.framework */; };
 		394C70681814F9720006AD91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394C704A1814F9720006AD91 /* UIKit.framework */; };
 		394C70701814F9720006AD91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 394C706E1814F9720006AD91 /* InfoPlist.strings */; };
@@ -57,8 +56,6 @@
 		394C714F181517E00006AD91 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C7146181517E00006AD91 /* ContextFilterLogFormatter.m */; };
 		394C7150181517E00006AD91 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C7148181517E00006AD91 /* DispatchQueueLogFormatter.m */; };
 		394C7151181517E00006AD91 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 394C7149181517E00006AD91 /* README.txt */; };
-		394C715418152A790006AD91 /* QuakeQueryResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C715318152A790006AD91 /* QuakeQueryResponse.m */; };
-		394C715718152E2B0006AD91 /* QuakeQuerySubResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C715618152E2B0006AD91 /* QuakeQuerySubResponse.m */; };
 		394C716D1815342B0006AD91 /* NSData+MKBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C715B1815342B0006AD91 /* NSData+MKBase64.m */; };
 		394C716E1815342B0006AD91 /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C715D1815342B0006AD91 /* NSDate+RFC1123.m */; };
 		394C716F1815342B0006AD91 /* NSDictionary+RequestEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C715F1815342B0006AD91 /* NSDictionary+RequestEncoding.m */; };
@@ -68,6 +65,10 @@
 		394C71731815342B0006AD91 /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C71671815342B0006AD91 /* MKNetworkEngine.m */; };
 		394C71741815342B0006AD91 /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C716A1815342B0006AD91 /* MKNetworkOperation.m */; };
 		394C71751815342B0006AD91 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C716C1815342B0006AD91 /* Reachability.m */; };
+		398FCBEE18160B6700639554 /* QuakeFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 398FCBED18160B6700639554 /* QuakeFeature.m */; };
+		398FCBF118160B8E00639554 /* QuakeFeaturesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 398FCBF018160B8E00639554 /* QuakeFeaturesResponse.m */; };
+		398FCBF4181647D800639554 /* NSNull+Fix.m in Sources */ = {isa = PBXBuildFile; fileRef = 398FCBF3181647D800639554 /* NSNull+Fix.m */; };
+		398FCBF71816503900639554 /* QuakeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 398FCBF61816503900639554 /* QuakeCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +97,6 @@
 		394C705C1814F9720006AD91 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		394C705E1814F9720006AD91 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		394C70641814F9720006AD91 /* EarthquakeInfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarthquakeInfoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		394C70651814F9720006AD91 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		394C706D1814F9720006AD91 /* EarthquakeInfoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EarthquakeInfoTests-Info.plist"; sourceTree = "<group>"; };
 		394C706F1814F9720006AD91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		394C70711814F9720006AD91 /* EarthquakeInfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthquakeInfoTests.m; sourceTree = "<group>"; };
@@ -168,10 +168,6 @@
 		394C7147181517E00006AD91 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		394C7148181517E00006AD91 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		394C7149181517E00006AD91 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		394C715218152A790006AD91 /* QuakeQueryResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuakeQueryResponse.h; sourceTree = "<group>"; };
-		394C715318152A790006AD91 /* QuakeQueryResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuakeQueryResponse.m; sourceTree = "<group>"; };
-		394C715518152E2B0006AD91 /* QuakeQuerySubResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuakeQuerySubResponse.h; sourceTree = "<group>"; };
-		394C715618152E2B0006AD91 /* QuakeQuerySubResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuakeQuerySubResponse.m; sourceTree = "<group>"; };
 		394C715A1815342B0006AD91 /* NSData+MKBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKBase64.h"; sourceTree = "<group>"; };
 		394C715B1815342B0006AD91 /* NSData+MKBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKBase64.m"; sourceTree = "<group>"; };
 		394C715C1815342B0006AD91 /* NSDate+RFC1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RFC1123.h"; sourceTree = "<group>"; };
@@ -191,6 +187,14 @@
 		394C716A1815342B0006AD91 /* MKNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkOperation.m; sourceTree = "<group>"; };
 		394C716B1815342B0006AD91 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		394C716C1815342B0006AD91 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		398FCBEC18160B6700639554 /* QuakeFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuakeFeature.h; sourceTree = "<group>"; };
+		398FCBED18160B6700639554 /* QuakeFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuakeFeature.m; sourceTree = "<group>"; };
+		398FCBEF18160B8E00639554 /* QuakeFeaturesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuakeFeaturesResponse.h; sourceTree = "<group>"; };
+		398FCBF018160B8E00639554 /* QuakeFeaturesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuakeFeaturesResponse.m; sourceTree = "<group>"; };
+		398FCBF2181647D800639554 /* NSNull+Fix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Fix.h"; sourceTree = "<group>"; };
+		398FCBF3181647D800639554 /* NSNull+Fix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+Fix.m"; sourceTree = "<group>"; };
+		398FCBF51816503900639554 /* QuakeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuakeCell.h; sourceTree = "<group>"; };
+		398FCBF61816503900639554 /* QuakeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuakeCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +219,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				394C70661814F9720006AD91 /* XCTest.framework in Frameworks */,
 				394C70681814F9720006AD91 /* UIKit.framework in Frameworks */,
 				394C70671814F9720006AD91 /* Foundation.framework in Frameworks */,
 			);
@@ -256,7 +259,6 @@
 				394C70461814F9720006AD91 /* Foundation.framework */,
 				394C70481814F9720006AD91 /* CoreGraphics.framework */,
 				394C704A1814F9720006AD91 /* UIKit.framework */,
-				394C70651814F9720006AD91 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -309,12 +311,8 @@
 		394C707D181509100006AD91 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				394C705B1814F9720006AD91 /* ViewController.h */,
-				394C705C1814F9720006AD91 /* ViewController.m */,
-				394C7130181510D80006AD91 /* QuakeListViewController.h */,
-				394C7131181510D80006AD91 /* QuakeListViewController.m */,
-				394C7136181512C10006AD91 /* QuakeListQueue.h */,
-				394C7137181512C10006AD91 /* QuakeListQueue.m */,
+				398FCBF91816506100639554 /* Main */,
+				398FCBF81816504500639554 /* Quake List */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -386,10 +384,10 @@
 				394C70A4181509310006AD91 /* BaseResponse.m */,
 				394C70A5181509310006AD91 /* JSONResponseFactory.h */,
 				394C70A6181509310006AD91 /* JSONResponseFactory.m */,
-				394C715218152A790006AD91 /* QuakeQueryResponse.h */,
-				394C715318152A790006AD91 /* QuakeQueryResponse.m */,
-				394C715518152E2B0006AD91 /* QuakeQuerySubResponse.h */,
-				394C715618152E2B0006AD91 /* QuakeQuerySubResponse.m */,
+				398FCBEF18160B8E00639554 /* QuakeFeaturesResponse.h */,
+				398FCBF018160B8E00639554 /* QuakeFeaturesResponse.m */,
+				398FCBEC18160B6700639554 /* QuakeFeature.h */,
+				398FCBED18160B6700639554 /* QuakeFeature.m */,
 			);
 			path = ResponseBean;
 			sourceTree = "<group>";
@@ -399,6 +397,8 @@
 			children = (
 				394C70B2181509310006AD91 /* ModelUtil.h */,
 				394C70B3181509310006AD91 /* ModelUtil.m */,
+				398FCBF2181647D800639554 /* NSNull+Fix.h */,
+				398FCBF3181647D800639554 /* NSNull+Fix.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -534,6 +534,28 @@
 			path = ASIHTTPRequest;
 			sourceTree = "<group>";
 		};
+		398FCBF81816504500639554 /* Quake List */ = {
+			isa = PBXGroup;
+			children = (
+				394C7130181510D80006AD91 /* QuakeListViewController.h */,
+				394C7131181510D80006AD91 /* QuakeListViewController.m */,
+				398FCBF51816503900639554 /* QuakeCell.h */,
+				398FCBF61816503900639554 /* QuakeCell.m */,
+				394C7136181512C10006AD91 /* QuakeListQueue.h */,
+				394C7137181512C10006AD91 /* QuakeListQueue.m */,
+			);
+			name = "Quake List";
+			sourceTree = "<group>";
+		};
+		398FCBF91816506100639554 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				394C705B1814F9720006AD91 /* ViewController.h */,
+				394C705C1814F9720006AD91 /* ViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -637,7 +659,9 @@
 				394C70FE181509310006AD91 /* JSONResponseFactory.m in Sources */,
 				394C70F6181509310006AD91 /* BaseRequest.m in Sources */,
 				394C7107181509310006AD91 /* ITSStream.m in Sources */,
+				398FCBF71816503900639554 /* QuakeCell.m in Sources */,
 				394C705D1814F9720006AD91 /* ViewController.m in Sources */,
+				398FCBEE18160B6700639554 /* QuakeFeature.m in Sources */,
 				394C70FD181509310006AD91 /* BaseResponse.m in Sources */,
 				394C7109181509310006AD91 /* ITSHttpQueueModule.m in Sources */,
 				394C710A181509310006AD91 /* ITSHttpStream.m in Sources */,
@@ -654,16 +678,16 @@
 				394C71741815342B0006AD91 /* MKNetworkOperation.m in Sources */,
 				394C7105181509310006AD91 /* GCDMulticastDelegate.m in Sources */,
 				394C711D181509310006AD91 /* JSONKit.m in Sources */,
+				398FCBF118160B8E00639554 /* QuakeFeaturesResponse.m in Sources */,
 				394C7106181509310006AD91 /* ITSQueueModule.m in Sources */,
+				398FCBF4181647D800639554 /* NSNull+Fix.m in Sources */,
 				394C716F1815342B0006AD91 /* NSDictionary+RequestEncoding.m in Sources */,
 				394C71701815342B0006AD91 /* NSString+MKNetworkKitAdditions.m in Sources */,
 				394C7150181517E00006AD91 /* DispatchQueueLogFormatter.m in Sources */,
 				394C70531814F9720006AD91 /* main.m in Sources */,
 				394C714D181517E00006AD91 /* DDLog.m in Sources */,
-				394C715418152A790006AD91 /* QuakeQueryResponse.m in Sources */,
 				394C716E1815342B0006AD91 /* NSDate+RFC1123.m in Sources */,
 				394C714C181517E00006AD91 /* DDFileLogger.m in Sources */,
-				394C715718152E2B0006AD91 /* QuakeQuerySubResponse.m in Sources */,
 				394C70F5181509310006AD91 /* ITSResponseFactory.m in Sources */,
 				394C7135181512410006AD91 /* Constant.m in Sources */,
 				394C712F18150E300006AD91 /* QuakeQueryRequest.m in Sources */,
@@ -886,6 +910,7 @@
 				394C70771814F9720006AD91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		394C70781814F9720006AD91 /* Build configuration list for PBXNativeTarget "EarthquakeInfoTests" */ = {
 			isa = XCConfigurationList;
@@ -894,6 +919,7 @@
 				394C707A1814F9720006AD91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -101,18 +101,12 @@
 
 -(void)execute:(dispatch_block_t)block
 {
-    if (dispatch_get_current_queue() == _threadQueue)
-        block();
-    else
-        dispatch_sync(_threadQueue, block);
+    dispatch_sync(_threadQueue, block);
 }
 
 -(void)schedule:(dispatch_block_t)block
 {
-    if (dispatch_get_current_queue() == _threadQueue)
-        block();
-    else
-        dispatch_async(_threadQueue, block);
+    dispatch_async(_threadQueue, block);
 }
 
 @end

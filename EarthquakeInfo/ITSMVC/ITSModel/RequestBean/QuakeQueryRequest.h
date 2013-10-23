@@ -18,4 +18,14 @@
 
 @property (nonatomic, strong) NSString *format;
 
+@property (nonatomic, strong) NSString *alertlevel;
+
+@property (nonatomic, strong) NSString *eventtype;
+
+@property (nonatomic, strong) NSString *orderby;
+
+@property (nonatomic, strong) NSString *reviewstatus;
+
+@property (nonatomic, assign) NSInteger minsig;
+
 @end

@@ -18,9 +18,7 @@ static ITSTransManager *transManager;
 +(id)defaultManager
 {
     if (transManager == nil) {
-        @synchronized(transManager){
-            transManager = [[ITSTransManager alloc] init];
-        }
+        transManager = [[ITSTransManager alloc] init];
     }
     
     return transManager;

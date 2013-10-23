@@ -26,9 +26,9 @@
 /**
  *	@brief	需要子类实现
  */
--(void)decode
+-(BOOL)decode
 {
-
+    return NO;
 }
 
 /**
@@ -62,9 +62,9 @@
 /**
  *	@brief	需要子类实现
  */
--(void)decode
+-(BOOL)decode
 {
-    
+    return NO;
 }
 
 /**

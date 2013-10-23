@@ -17,9 +17,19 @@
     if (self) {
         
         self.format = @"geojson";
+        self.alertlevel = @"green";
+        self.eventtype = @"earthquake";
+        self.orderby = @"time";
+        self.reviewstatus = @"reviewed";
+        self.minsig = 600;
     }
     
     return self;
+}
+
+-(NSUInteger)tag
+{
+    return kActionTag_Request_Query;
 }
 
 @end

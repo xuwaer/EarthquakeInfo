@@ -16,7 +16,7 @@
 /**
  *	@brief	解码功能，具体实现方式在各个对象中体现
  */
--(void) decode;
+-(BOOL) decode;
 
 /**
  *	@brief	标识，区分不同的对象。

@@ -11,6 +11,8 @@
 
 @implementation ModelUtil
 
+#pragma mark - 解析工具已废弃
+
 +(id)convertObjectToJSON:(id)object
 {
     unsigned int outCount, i;
@@ -51,13 +53,45 @@
     return nil;
 }
 
-+(NSString *)convertDateToUTC:(NSDate *)date
+#pragma mark - 时间制式工具
+
++(NSString *)convertDateToUTCType1:(NSDate *)date
 {
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.timeZone = timeZone;
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:SS"];
     return [dateFormatter stringFromDate:date];
+}
+
++(NSString *)convertDateToUTCType2:(NSDate *)date
+{
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeZone = timeZone;
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:SS"];
+    return [[dateFormatter stringFromDate:date] stringByAppendingString:@" UTC"];
+}
+
+#pragma mark - 其他工具
+
++(UIColor *)convertAlertToColor:(NSString *)alert
+{
+    if (alert == nil || [alert isEqual:[NSNull null]])
+        return [UIColor blackColor];
+    else if ([alert isEqualToString:@"green"])
+        return [UIColor greenColor];
+    else if ([alert isEqualToString:@"yellow"])
+        return [UIColor yellowColor];
+    else if ([alert isEqualToString:@"red"])
+        return [UIColor redColor];
+    else
+        return [UIColor blackColor];
+}
+
++(NSString *)formatDepthData:(float)depth
+{
+    return [NSString stringWithFormat:@"%.1fkm depth", depth];
 }
 
 @end

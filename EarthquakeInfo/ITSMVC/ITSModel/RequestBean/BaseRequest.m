@@ -76,7 +76,7 @@
         else if ([value isKindOfClass:[NSNumber class]])
             requestUrl = [requestUrl stringByAppendingFormat:@"%@=%@&", key, [value stringValue]];
         else if ([value isKindOfClass:[NSDate class]])
-            requestUrl = [requestUrl stringByAppendingFormat:@"%@=%@&", key, [ModelUtil convertDateToUTC:value]];
+            requestUrl = [requestUrl stringByAppendingFormat:@"%@=%@&", key, [ModelUtil convertDateToUTCType1:value]];
         else
             requestUrl = [requestUrl stringByAppendingFormat:@"%@=%@&", key, [self requestUrlWithNonObjcType:value]];
 

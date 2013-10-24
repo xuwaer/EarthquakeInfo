@@ -13,6 +13,7 @@
 @property (nonatomic, assign) IBOutlet UILabel *magLabel;
 @property (nonatomic, assign) IBOutlet UILabel *placeLabel;
 @property (nonatomic, assign) IBOutlet UILabel *timeLabel;
+@property (nonatomic, assign) IBOutlet UILabel *depthLabel;
 
 @property (nonatomic, strong, readonly) id datasource;
 

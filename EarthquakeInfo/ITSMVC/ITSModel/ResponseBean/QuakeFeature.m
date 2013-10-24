@@ -8,6 +8,7 @@
 
 #import "QuakeFeature.h"
 #import "NSNull+Fix.h"
+#import "ModelUtil.h"
 
 #define kFeature        @"Feature"
 #define kproperties     @"properties"
@@ -70,7 +71,6 @@
     self.felt = [[propertiesJson valueForKey:kfelt] integerValue];
     self.cdi = [[propertiesJson valueForKey:kcdi] floatValue];
     self.mmi = [[propertiesJson valueForKey:kmmi] floatValue];
-    self.alert = [propertiesJson valueForKey:kalert];
     self.status = [propertiesJson valueForKey:kstatus];
     self.tsunami = [[propertiesJson valueForKey:ktsunami] integerValue];
     self.sig = [[propertiesJson valueForKey:ksig] integerValue];
@@ -85,6 +85,9 @@
     self.gap = [[propertiesJson valueForKey:kgap] floatValue];
     self.magType = [propertiesJson valueForKey:kmagType];
     self.type = [propertiesJson valueForKey:ktype];
+    
+    NSString *alertStr = [propertiesJson valueForKey:kalert];
+    self.alert = [ModelUtil convertAlertToColor:alertStr];
     
     /*** 解析geometry ****/
     NSDictionary *geometryJson = [_subDic valueForKey:kgeometry];

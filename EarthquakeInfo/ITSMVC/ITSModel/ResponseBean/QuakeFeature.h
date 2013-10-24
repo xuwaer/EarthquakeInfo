@@ -27,7 +27,7 @@ struct GEOMETRY {
 @property (nonatomic, assign) NSInteger felt;
 @property (nonatomic, assign) float cdi;
 @property (nonatomic, assign) float mmi;
-@property (nonatomic, strong) NSString *alert;
+@property (nonatomic, strong) UIColor *alert;
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, assign) NSInteger tsunami;
 @property (nonatomic, assign) NSInteger sig;

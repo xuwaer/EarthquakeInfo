@@ -8,3 +8,5 @@ EarthquakeInfo.xcodeproj/project.xcworkspace/contents.xcworkspacedata
 *.xcscheme
 
 EarthquakeInfo.xcodeproj/xcuserdata/xukj.xcuserdatad/xcschemes/xcschememanagement.plist
+
+*.xcsettings

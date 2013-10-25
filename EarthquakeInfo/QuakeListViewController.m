@@ -41,7 +41,7 @@
         return;
     
     [_data addObjectsFromArray:inData.features];
-    _earlyDate = ((QuakeFeature *)[self lastFeature]).time;
+    _earlyDate = ((QuakeFeature *)[self firstFeature]).time;
 }
 
 -(id)featureAtIndex:(NSInteger)index
@@ -271,12 +271,6 @@
 - (void)requestAllQuakeInfo
 {
     QuakeQueryRequest *request = [[QuakeQueryRequest alloc] init];
-//    request.minmag = 4.9;
-//    
-//    NSDateFormatter *dateFormate = [[NSDateFormatter alloc] init];
-//    dateFormate.dateFormat = @"yyyy-MM-dd";
-//    request.starttime = [dateFormate dateFromString:@"2013-09-22"];
-//    request.endtime = [dateFormate dateFromString:@"2013-10-22"];
     request.userinfo = kRefreshType_All;
     
     [quakeListControl sendRequest:request target:self selector:@selector(displayUI:)];
@@ -293,12 +287,6 @@
         [self requestAllQuakeInfo];
     
     QuakeQueryRequest *request = [[QuakeQueryRequest alloc] init];
-//    request.minmag = 4.9;
-    
-//    NSDateFormatter *dateFormate = [[NSDateFormatter alloc] init];
-//    dateFormate.dateFormat = @"yyyy-MM-dd";
-//    request.starttime = endDate;
-//    request.endtime = [dateFormate dateFromString:@"2013-10-22"];
     request.userinfo = kRefreshType_More;
     request.offset = [self.datasource count] + 1;
     

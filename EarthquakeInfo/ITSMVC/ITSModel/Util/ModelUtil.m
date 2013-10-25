@@ -93,7 +93,7 @@
 
 +(NSString *)formatDepthData:(float)depth
 {
-    return [NSString stringWithFormat:@"%.1fkm depth", depth];
+    return [NSString stringWithFormat:@"%.1fkm deep", depth];
 }
 
 @end

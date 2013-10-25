@@ -17,7 +17,7 @@
     // Override point for customization after application launch.
     
     ITSTransManager *transManager = [ITSTransManager defaultManager];
-    [transManager setHostname:HOST];
+    [transManager setHostname:SERVER_CONNECTION_HOST];
     
     return YES;
 }

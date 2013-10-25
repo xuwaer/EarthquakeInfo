@@ -11,6 +11,7 @@
 @interface QuakeQueryRequest : BaseRequest
 
 @property (nonatomic, assign) float minmag;
+@property (nonatomic, assign) float maxmag;
 
 @property (nonatomic, strong) NSDate *starttime;
 
@@ -28,6 +29,7 @@
 
 @property (nonatomic, assign) NSInteger minsig;
 
-@property (nonatomic, assign) NSInteger limit;
+@property (nonatomic, assign, readonly) NSInteger limit;
+@property (nonatomic, assign) NSInteger offset;
 
 @end

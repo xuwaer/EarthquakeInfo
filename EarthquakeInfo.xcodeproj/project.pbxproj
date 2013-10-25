@@ -154,7 +154,7 @@
 		394C712E18150E300006AD91 /* QuakeQueryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuakeQueryRequest.m; sourceTree = "<group>"; };
 		394C7130181510D80006AD91 /* QuakeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuakeListViewController.h; sourceTree = "<group>"; };
 		394C7131181510D80006AD91 /* QuakeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuakeListViewController.m; sourceTree = "<group>"; };
-		394C7133181512410006AD91 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		394C7133181512410006AD91 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = EarthquakeInfo/Constant.h; sourceTree = SOURCE_ROOT; };
 		394C7134181512410006AD91 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 		394C7136181512C10006AD91 /* QuakeListQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuakeListQueue.h; sourceTree = "<group>"; };
 		394C7137181512C10006AD91 /* QuakeListQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuakeListQueue.m; sourceTree = "<group>"; };
@@ -283,10 +283,9 @@
 			children = (
 				394C70551814F9720006AD91 /* AppDelegate.h */,
 				394C70561814F9720006AD91 /* AppDelegate.m */,
-				394C7133181512410006AD91 /* Constant.h */,
-				394C7134181512410006AD91 /* Constant.m */,
 				394C70581814F9720006AD91 /* Main.storyboard */,
 				394C705E1814F9720006AD91 /* Images.xcassets */,
+				398B4076181A010D009AC5B6 /* Data */,
 				394C707D181509100006AD91 /* View Controllers */,
 				398C36CD18190762007167A6 /* Custom View */,
 				394C707E181509310006AD91 /* ITSMVC */,
@@ -548,6 +547,15 @@
 			children = (
 			);
 			path = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		398B4076181A010D009AC5B6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				394C7133181512410006AD91 /* Constant.h */,
+				394C7134181512410006AD91 /* Constant.m */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		398C36CD18190762007167A6 /* Custom View */ = {

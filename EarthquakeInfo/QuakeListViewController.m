@@ -10,6 +10,11 @@
 #import "QuakeFeaturesResponse.h"
 #import "QuakeFeature.h"
 
+#ifndef kRefreshType
+#define kRefreshType_All @"kRefreshType_All"        //刷新
+#define kRefreshType_More @"kRefreshType_More"      //加载更过
+#endif
+
 @implementation QuakeDataSource
 {
     NSInteger cursor;
@@ -30,13 +35,13 @@
     return _data.count;
 }
 
--(void)addToDataSource:(QuakeFeaturesResponse *)data
+-(void)addToDataSource:(QuakeFeaturesResponse *)inData
 {
-    if (data.features == nil || data.features.count <= 0)
+    if (inData.features == nil || inData.features.count <= 0)
         return;
     
-    [_data addObjectsFromArray:data.features];
-    _endDate = ((QuakeFeature *)[self lastFeature]).time;
+    [_data addObjectsFromArray:inData.features];
+    _earlyDate = ((QuakeFeature *)[self lastFeature]).time;
 }
 
 -(id)featureAtIndex:(NSInteger)index
@@ -162,7 +167,7 @@
 {
     [super viewDidLoad];
     
-    [self refreshQuakeInfo:@"refreshall"];
+    [self refreshQuakeInfo:kRefreshType_All];
 }
 
 - (void)didReceiveMemoryWarning
@@ -254,20 +259,50 @@
 
 - (void)refreshQuakeInfo:(NSString *)tag
 {
-    QuakeQueryRequest *request = [[QuakeQueryRequest alloc] init];
-    request.minmag = 4.9;
+    if ([tag isEqualToString:kRefreshType_All])
+        [self requestAllQuakeInfo];
+    else if ([tag isEqualToString:kRefreshType_More])
+        [self requestMoreQuakeInfo];
+}
 
-    NSDateFormatter *dateFormate = [[NSDateFormatter alloc] init];
-    dateFormate.dateFormat = @"yyyy-MM-dd";
-    request.starttime = [dateFormate dateFromString:@"2013-09-22"];
-    request.endtime = [dateFormate dateFromString:@"2013-10-22"];
-    request.userinfo = tag;
+/**
+ *	@brief	刷新数据
+ */
+- (void)requestAllQuakeInfo
+{
+    QuakeQueryRequest *request = [[QuakeQueryRequest alloc] init];
+//    request.minmag = 4.9;
+//    
+//    NSDateFormatter *dateFormate = [[NSDateFormatter alloc] init];
+//    dateFormate.dateFormat = @"yyyy-MM-dd";
+//    request.starttime = [dateFormate dateFromString:@"2013-09-22"];
+//    request.endtime = [dateFormate dateFromString:@"2013-10-22"];
+    request.userinfo = kRefreshType_All;
     
     [quakeListControl sendRequest:request target:self selector:@selector(displayUI:)];
 }
 
-- (void)loadmordQuakeInfo
+/**
+ *	@brief	加载更多，以最后一条的时间作为基准
+ */
+- (void)requestMoreQuakeInfo
 {
+    NSDate *endDate = [self.datasource earlyDate];
+    // 如果datasource为空，默认刷新数据
+    if (endDate == nil)
+        [self requestAllQuakeInfo];
+    
+    QuakeQueryRequest *request = [[QuakeQueryRequest alloc] init];
+//    request.minmag = 4.9;
+    
+//    NSDateFormatter *dateFormate = [[NSDateFormatter alloc] init];
+//    dateFormate.dateFormat = @"yyyy-MM-dd";
+//    request.starttime = endDate;
+//    request.endtime = [dateFormate dateFromString:@"2013-10-22"];
+    request.userinfo = kRefreshType_More;
+    request.offset = [self.datasource count] + 1;
+    
+    [quakeListControl sendRequest:request target:self selector:@selector(displayUI:)];
 
 }
 
@@ -276,8 +311,8 @@
     if (![note isKindOfClass:[QuakeFeaturesResponse class]])
         return;
     
-    if ([((QuakeFeaturesResponse *)note).userinfo isEqualToString:@"refreshall"]) {
-        
+    // 如果是刷新，需要清空datasource
+    if ([((QuakeFeaturesResponse *)note).userinfo isEqualToString:kRefreshType_All]) {
         [self.datasource clear];
     }
     
@@ -290,12 +325,12 @@
 
 -(void)refreshAll
 {
-    [self refreshQuakeInfo:@"refreshall"];
+    [self refreshQuakeInfo:kRefreshType_All];
 }
 
 -(void)loadMore
 {
-    [self refreshQuakeInfo:@"loadmore"];
+    [self refreshQuakeInfo:kRefreshType_More];
 }
 
 @end

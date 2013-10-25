@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#define HOST @"http://comcat.cr.usgs.gov/fdsnws/event/1"
+#ifndef SERVER_CONNECTION 
+#define SERVER_CONNECTION_HOST @"http://comcat.cr.usgs.gov/fdsnws/event/1"
+#endif
+
+#ifndef EVENT_TYPE
+#define EVENTT_YPE @"earthquake"     //地震
+#endif
 
 @interface Constant : NSObject
 

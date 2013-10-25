@@ -15,7 +15,7 @@
  */
 @interface QuakeDataSource : NSObject
 
-@property (nonatomic, strong, readonly) NSDate *earlyDate;
+@property (nonatomic, strong, readonly) NSDate *endDate;
 
 @property (nonatomic, strong, readonly) NSMutableArray *data;
 

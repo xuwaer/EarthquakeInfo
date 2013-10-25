@@ -15,7 +15,6 @@
 		394C70571814F9720006AD91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C70561814F9720006AD91 /* AppDelegate.m */; };
 		394C705A1814F9720006AD91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394C70581814F9720006AD91 /* Main.storyboard */; };
 		394C705D1814F9720006AD91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C705C1814F9720006AD91 /* ViewController.m */; };
-		394C705F1814F9720006AD91 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394C705E1814F9720006AD91 /* Images.xcassets */; };
 		394C70671814F9720006AD91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394C70461814F9720006AD91 /* Foundation.framework */; };
 		394C70681814F9720006AD91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394C704A1814F9720006AD91 /* UIKit.framework */; };
 		394C70701814F9720006AD91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 394C706E1814F9720006AD91 /* InfoPlist.strings */; };
@@ -65,6 +64,18 @@
 		394C71731815342B0006AD91 /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C71671815342B0006AD91 /* MKNetworkEngine.m */; };
 		394C71741815342B0006AD91 /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C716A1815342B0006AD91 /* MKNetworkOperation.m */; };
 		394C71751815342B0006AD91 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C716C1815342B0006AD91 /* Reachability.m */; };
+		398B4086181A52D9009AC5B6 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B4085181A52D9009AC5B6 /* KxMenu.m */; };
+		398B4088181A562E009AC5B6 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398B4087181A562E009AC5B6 /* Image.xcassets */; };
+		398B4099181A5971009AC5B6 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 398B4093181A5971009AC5B6 /* menu.png */; };
+		398B409A181A5971009AC5B6 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 398B4094181A5971009AC5B6 /* menu@2x.png */; };
+		398B409B181A5971009AC5B6 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 398B4095181A5971009AC5B6 /* map.png */; };
+		398B409C181A5971009AC5B6 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 398B4096181A5971009AC5B6 /* map@2x.png */; };
+		398B409D181A5971009AC5B6 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 398B4097181A5971009AC5B6 /* search.png */; };
+		398B409E181A5971009AC5B6 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 398B4098181A5971009AC5B6 /* search@2x.png */; };
+		398B40A2181A6FEC009AC5B6 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B40A1181A6FEC009AC5B6 /* MapViewController.m */; };
+		398B40A5181A76E2009AC5B6 /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B40A4181A76E2009AC5B6 /* AppData.m */; };
+		398B40A8181A7E3F009AC5B6 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 398B40A6181A7E3F009AC5B6 /* comment.png */; };
+		398B40A9181A7E3F009AC5B6 /* comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 398B40A7181A7E3F009AC5B6 /* comment@2x.png */; };
 		398C36D718190784007167A6 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 398C36CF18190784007167A6 /* MJRefresh.bundle */; };
 		398C36D818190784007167A6 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 398C36D218190784007167A6 /* MJRefreshBaseView.m */; };
 		398C36D918190784007167A6 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 398C36D418190784007167A6 /* MJRefreshFooterView.m */; };
@@ -100,7 +111,6 @@
 		394C70591814F9720006AD91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		394C705B1814F9720006AD91 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		394C705C1814F9720006AD91 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		394C705E1814F9720006AD91 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		394C70641814F9720006AD91 /* EarthquakeInfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarthquakeInfoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		394C706D1814F9720006AD91 /* EarthquakeInfoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EarthquakeInfoTests-Info.plist"; sourceTree = "<group>"; };
 		394C706F1814F9720006AD91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -192,6 +202,21 @@
 		394C716A1815342B0006AD91 /* MKNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkOperation.m; sourceTree = "<group>"; };
 		394C716B1815342B0006AD91 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		394C716C1815342B0006AD91 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		398B4084181A52D9009AC5B6 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
+		398B4085181A52D9009AC5B6 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
+		398B4087181A562E009AC5B6 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
+		398B4093181A5971009AC5B6 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		398B4094181A5971009AC5B6 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		398B4095181A5971009AC5B6 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		398B4096181A5971009AC5B6 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
+		398B4097181A5971009AC5B6 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		398B4098181A5971009AC5B6 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
+		398B40A0181A6FEC009AC5B6 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		398B40A1181A6FEC009AC5B6 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		398B40A3181A76E2009AC5B6 /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
+		398B40A4181A76E2009AC5B6 /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppData.m; sourceTree = "<group>"; };
+		398B40A6181A7E3F009AC5B6 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
+		398B40A7181A7E3F009AC5B6 /* comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment@2x.png"; sourceTree = "<group>"; };
 		398C36CF18190784007167A6 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		398C36D018190784007167A6 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		398C36D118190784007167A6 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
@@ -284,11 +309,11 @@
 				394C70551814F9720006AD91 /* AppDelegate.h */,
 				394C70561814F9720006AD91 /* AppDelegate.m */,
 				394C70581814F9720006AD91 /* Main.storyboard */,
-				394C705E1814F9720006AD91 /* Images.xcassets */,
 				398B4076181A010D009AC5B6 /* Data */,
 				394C707D181509100006AD91 /* View Controllers */,
 				398C36CD18190762007167A6 /* Custom View */,
 				394C707E181509310006AD91 /* ITSMVC */,
+				398B4092181A58EF009AC5B6 /* Resource */,
 				394C704D1814F9720006AD91 /* Supporting Files */,
 			);
 			path = EarthquakeInfo;
@@ -326,6 +351,7 @@
 		394C707D181509100006AD91 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				398B409F181A6FC7009AC5B6 /* Map */,
 				398FCBF91816506100639554 /* Main */,
 				398FCBF81816504500639554 /* Quake List */,
 			);
@@ -554,13 +580,50 @@
 			children = (
 				394C7133181512410006AD91 /* Constant.h */,
 				394C7134181512410006AD91 /* Constant.m */,
+				398B40A3181A76E2009AC5B6 /* AppData.h */,
+				398B40A4181A76E2009AC5B6 /* AppData.m */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		398B4083181A52D9009AC5B6 /* KxMenu */ = {
+			isa = PBXGroup;
+			children = (
+				398B4084181A52D9009AC5B6 /* KxMenu.h */,
+				398B4085181A52D9009AC5B6 /* KxMenu.m */,
+			);
+			path = KxMenu;
+			sourceTree = "<group>";
+		};
+		398B4092181A58EF009AC5B6 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				398B40A6181A7E3F009AC5B6 /* comment.png */,
+				398B40A7181A7E3F009AC5B6 /* comment@2x.png */,
+				398B4093181A5971009AC5B6 /* menu.png */,
+				398B4094181A5971009AC5B6 /* menu@2x.png */,
+				398B4095181A5971009AC5B6 /* map.png */,
+				398B4096181A5971009AC5B6 /* map@2x.png */,
+				398B4097181A5971009AC5B6 /* search.png */,
+				398B4098181A5971009AC5B6 /* search@2x.png */,
+				398B4087181A562E009AC5B6 /* Image.xcassets */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		398B409F181A6FC7009AC5B6 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				398B40A0181A6FEC009AC5B6 /* MapViewController.h */,
+				398B40A1181A6FEC009AC5B6 /* MapViewController.m */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 		398C36CD18190762007167A6 /* Custom View */ = {
 			isa = PBXGroup;
 			children = (
+				398B4083181A52D9009AC5B6 /* KxMenu */,
 				398C36CE18190784007167A6 /* MJRefresh */,
 			);
 			name = "Custom View";
@@ -681,11 +744,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				394C705F1814F9720006AD91 /* Images.xcassets in Resources */,
+				398B4099181A5971009AC5B6 /* menu.png in Resources */,
+				398B40A9181A7E3F009AC5B6 /* comment@2x.png in Resources */,
 				394C70511814F9720006AD91 /* InfoPlist.strings in Resources */,
 				394C7151181517E00006AD91 /* README.txt in Resources */,
+				398B4088181A562E009AC5B6 /* Image.xcassets in Resources */,
 				398C36D718190784007167A6 /* MJRefresh.bundle in Resources */,
+				398B409B181A5971009AC5B6 /* map.png in Resources */,
+				398B409D181A5971009AC5B6 /* search.png in Resources */,
+				398B409E181A5971009AC5B6 /* search@2x.png in Resources */,
+				398B409C181A5971009AC5B6 /* map@2x.png in Resources */,
+				398B40A8181A7E3F009AC5B6 /* comment.png in Resources */,
 				394C705A1814F9720006AD91 /* Main.storyboard in Resources */,
+				398B409A181A5971009AC5B6 /* menu@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +778,7 @@
 				394C70F2181509310006AD91 /* ITSRequest.m in Sources */,
 				398C36DA18190784007167A6 /* MJRefreshHeaderView.m in Sources */,
 				394C70FC181509310006AD91 /* URLRequestFactory.m in Sources */,
+				398B40A5181A76E2009AC5B6 /* AppData.m in Sources */,
 				394C70FE181509310006AD91 /* JSONResponseFactory.m in Sources */,
 				394C70F6181509310006AD91 /* BaseRequest.m in Sources */,
 				394C7107181509310006AD91 /* ITSStream.m in Sources */,
@@ -722,6 +794,7 @@
 				394C71721815342B0006AD91 /* UIImageView+MKNetworkKitAdditions.m in Sources */,
 				394C71711815342B0006AD91 /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
 				394C7138181512C10006AD91 /* QuakeListQueue.m in Sources */,
+				398B4086181A52D9009AC5B6 /* KxMenu.m in Sources */,
 				394C7132181510D80006AD91 /* QuakeListViewController.m in Sources */,
 				394C70571814F9720006AD91 /* AppDelegate.m in Sources */,
 				394C714B181517E00006AD91 /* DDASLLogger.m in Sources */,
@@ -750,6 +823,7 @@
 				394C70F4181509310006AD91 /* ITSResponse.m in Sources */,
 				394C71731815342B0006AD91 /* MKNetworkEngine.m in Sources */,
 				394C714F181517E00006AD91 /* ContextFilterLogFormatter.m in Sources */,
+				398B40A2181A6FEC009AC5B6 /* MapViewController.m in Sources */,
 				394C714A181517E00006AD91 /* DDAbstractDatabaseLogger.m in Sources */,
 				394C7108181509310006AD91 /* ITSTransManager.m in Sources */,
 			);
@@ -834,7 +908,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -867,7 +941,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -877,8 +951,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EarthquakeInfo/EarthquakeInfo-Prefix.pch";
 				INFOPLIST_FILE = "EarthquakeInfo/EarthquakeInfo-Info.plist";
@@ -892,8 +964,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EarthquakeInfo/EarthquakeInfo-Prefix.pch";
 				INFOPLIST_FILE = "EarthquakeInfo/EarthquakeInfo-Info.plist";

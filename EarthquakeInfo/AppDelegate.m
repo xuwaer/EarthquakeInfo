@@ -9,15 +9,22 @@
 #import "AppDelegate.h"
 #import "ITSTransManager.h"
 #import "Constant.h"
+#import "AppData.h"
+
+#import "MapViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    
+    // 初始化网络参数
     ITSTransManager *transManager = [ITSTransManager defaultManager];
     [transManager setHostname:SERVER_CONNECTION_HOST];
+    
+    // 初始化地图，防止重复加载耗费流量
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MapViewController *mapController = [storyboard instantiateViewControllerWithIdentifier:@"MapController"];
+    [AppData appData].mapController = mapController;
     
     return YES;
 }

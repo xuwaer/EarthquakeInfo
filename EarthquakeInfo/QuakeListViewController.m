@@ -10,11 +10,19 @@
 #import "QuakeFeaturesResponse.h"
 #import "QuakeFeature.h"
 
+#import "KxMenu/KxMenu.h"
+
 #ifndef kRefreshType
 #define kRefreshType_All @"kRefreshType_All"        //刷新
 #define kRefreshType_More @"kRefreshType_More"      //加载更过
 #endif
 
+#import "AppData.h"
+#import "MapViewController.h"
+
+/**
+ *	@brief	自定义数据源对象
+ */
 @implementation QuakeDataSource
 {
     NSInteger cursor;
@@ -41,7 +49,7 @@
         return;
     
     [_data addObjectsFromArray:inData.features];
-    _earlyDate = ((QuakeFeature *)[self firstFeature]).time;
+    _endDate = ((QuakeFeature *)[self firstFeature]).time;
 }
 
 -(id)featureAtIndex:(NSInteger)index
@@ -167,6 +175,9 @@
 {
     [super viewDidLoad];
     
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(showmenu:)];
+    self.navigationItem.rightBarButtonItem = menuItem;
+    
     [self refreshQuakeInfo:kRefreshType_All];
 }
 
@@ -174,6 +185,39 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showmenu:(id)sender
+{
+    CGRect fromRect;
+    if ([sender isKindOfClass:[UIBarButtonItem class]]) {
+        
+        UIView *view = (UIView *)[self.navigationController.navigationBar.subviews objectAtIndex:2];
+        fromRect = view.frame;
+        // 调整popover位置
+        fromRect = CGRectMake(fromRect.origin.x, 64, view.frame.size.width, 1);
+    }
+    else {
+        fromRect = ((UIView *)sender).frame;
+    }
+    
+    NSArray *menuItems =
+  @[
+        [KxMenuItem menuItem:@"Map" image:[UIImage imageNamed:@"map"] target:self action:@selector(viewInMap:)],
+        [KxMenuItem menuItem:@"Search" image:[UIImage imageNamed:@"search"] target:self action:@selector(setSearch:)]
+    ];
+    
+    [KxMenu showMenuInView:self.navigationController.view fromRect:fromRect menuItems:menuItems];
+}
+
+- (void)viewInMap:(id)sender
+{
+    [self presentViewController:[AppData appData].mapController animated:YES completion:NULL];
+}
+
+- (void)setSearch:(id)sender
+{
+
 }
 
 #pragma mark - Table view data source
@@ -204,57 +248,6 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
-
 #pragma mark - 数据请求/应答
 
 - (void)refreshQuakeInfo:(NSString *)tag
@@ -281,9 +274,7 @@
  */
 - (void)requestMoreQuakeInfo
 {
-    NSDate *endDate = [self.datasource earlyDate];
-    // 如果datasource为空，默认刷新数据
-    if (endDate == nil)
+    if ([self.datasource count] <= 0)
         [self requestAllQuakeInfo];
     
     QuakeQueryRequest *request = [[QuakeQueryRequest alloc] init];
@@ -291,7 +282,6 @@
     request.offset = [self.datasource count] + 1;
     
     [quakeListControl sendRequest:request target:self selector:@selector(displayUI:)];
-
 }
 
 - (void)displayUI:(id)note

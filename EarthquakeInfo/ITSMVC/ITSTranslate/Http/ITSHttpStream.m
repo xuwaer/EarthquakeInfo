@@ -14,6 +14,9 @@
 #import "MKNetworkKit.h"
 #import "MKNetworkOperationExt.h"
 
+#import "BaseRequest.h"
+#import "BaseResponse.h"
+
 #define kStream_Cache_RequestBean_Tag @"kStream_Cache_RequestBean_Tag"
 #define kStream_Cache_Response_Data @"kStream_Cache_Response_Data"
 
@@ -81,13 +84,13 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)sendHttpRequest:(BaseRequest *)requestInfo userinfo:(NSDictionary *)userinfo
+-(void)sendHttpRequest:(BaseRequest *)request requestInfo:(NSDictionary *)requestInfo
 {
     dispatch_block_t block = ^{@autoreleasepool{
     
-        switch (requestInfo.requestType) {
+        switch (request.requestType) {
             case HttpRequestTypeGet:
-                [self sendGetHttpRequest:requestInfo userinfo:userinfo];
+                [self sendGetHttpRequest:request requestInfo:requestInfo];
                 break;
             case HttpRequestTypePost:
                 //由于还未验证POST，因此暂不支持POST请求
@@ -112,15 +115,15 @@
  *
  *	@param 	requestInfo 	实现接口ITSRequestDelegate的实体类
  */
--(void)sendGetHttpRequest:(BaseRequest *)requestInfo
-                 userinfo:(NSDictionary *)userinfo
+-(void)sendGetHttpRequest:(BaseRequest *)request
+              requestInfo:(NSDictionary *)requestInfo
 {
     dispatch_block_t block = ^{@autoreleasepool{
         
         DDLogVerbose(@"%@(%@)", THIS_FILE, THIS_METHOD);
         
         // 本地实体对象编码为服务器能够识别的数据
-        NSString *requestCommand = [requestInfo encode];
+        NSString *requestCommand = [request encode];
         
         if (requestCommand == nil)
             return;
@@ -129,9 +132,10 @@
         
         MKNetworkOperationExt *operationExt = [[MKNetworkOperationExt alloc] initWithURLString:[url absoluteString] params:nil httpMethod:@"GET"];
         // 缓存需要的信息
-        operationExt.userinfo = userinfo;
+        operationExt.requestinfo = requestInfo;
+        operationExt.userinfo = request.userinfo;
         // 请求tag
-        operationExt.tag = requestInfo.tag;
+        operationExt.tag = request.tag;
         // MKNetworkOperation *operation = [self.netEngine operationWithPath:url];
         
         MKNKResponseBlock responseBlock = ^(MKNetworkOperation *operation) {
@@ -246,7 +250,8 @@
 {
     // 该方法在dataStreamQueue中执行
     dispatch_block_t block = ^{
-
+        
+        ((BaseResponse *)object).userinfo = ((MKNetworkOperationExt *)opt).userinfo;
         DDLogVerbose(@"%@(%@)tag:%d", THIS_FILE, THIS_METHOD, [(id<ITSResponseDelegate>)object tag]);
         
         // multicastDelgate没有实现该方法，所以在其内部，会把该函数调用消息传递给其保存的delegate中去执行。

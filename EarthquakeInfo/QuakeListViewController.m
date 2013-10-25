@@ -7,9 +7,93 @@
 //
 
 #import "QuakeListViewController.h"
+#import "QuakeFeaturesResponse.h"
+#import "QuakeFeature.h"
+
+@implementation QuakeDataSource
+{
+    NSInteger cursor;
+}
+
+-(id)init
+{
+    self = [super init];
+    if (self) {
+        _data = [[NSMutableArray alloc] init];
+        cursor = -1;
+    }
+    return self;
+}
+
+-(NSInteger)count
+{
+    return _data.count;
+}
+
+-(void)addToDataSource:(QuakeFeaturesResponse *)data
+{
+    if (data.features == nil || data.features.count <= 0)
+        return;
+    
+    [_data addObjectsFromArray:data.features];
+    _endDate = ((QuakeFeature *)[self lastFeature]).time;
+}
+
+-(id)featureAtIndex:(NSInteger)index
+{
+    return [_data objectAtIndex:index];
+}
+
+-(id)firstFeature
+{
+    if (_data.count <= 0)
+        return nil;
+    else
+        return [_data firstObject];
+}
+
+-(id)lastFeature
+{
+    if (_data.count <= 0)
+        return nil;
+    else
+        return [_data lastObject];
+}
+
+-(void)moveCursor:(NSInteger)cursorTo
+{
+    cursor = cursorTo;
+}
+
+-(id)nextFeature
+{
+    if (cursor + 1 >= _data.count)
+        return nil;
+    else
+        return [self featureAtIndex:++cursor];
+}
+
+-(id)previousFeature
+{
+    if (cursor - 1 < 0)
+        return nil;
+    else
+        return [self featureAtIndex:--cursor];
+}
+
+-(void)clear
+{
+    [_data removeAllObjects];
+    cursor = -1;
+}
+
+@end
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 #import "QuakeListQueue.h"
 #import "QuakeQueryRequest.h"
-#import "QuakeFeaturesResponse.h"
 
 #import "QuakeCell.h"
 
@@ -26,6 +110,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
+        self.datasource = [[QuakeDataSource alloc] init];
         [self setupHttpQueue];
     }
     return self;
@@ -35,6 +120,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.datasource = [[QuakeDataSource alloc] init];
         [self setupHttpQueue];
     }
     return self;
@@ -44,6 +130,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        self.datasource = [[QuakeDataSource alloc] init];
         [self setupHttpQueue];
     }
     return self;
@@ -75,7 +162,7 @@
 {
     [super viewDidLoad];
     
-    [self requestList];
+    [self refreshQuakeInfo:@"refreshall"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,10 +180,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.datasource == nil || ((QuakeFeaturesResponse *)self.datasource).features == nil)
-        return 0;
-    else
-        return [((QuakeFeaturesResponse *)self.datasource).features count];
+    [super tableView:tableView numberOfRowsInSection:section];
+    
+    return [self.datasource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -108,7 +194,7 @@
         cell = [[QuakeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    [cell updateDisplayUI:((QuakeFeaturesResponse *)self.datasource).features[indexPath.row]];
+    [cell updateDisplayUI:[self.datasource featureAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -164,7 +250,9 @@
 
  */
 
-- (void)requestList
+#pragma mark - 数据请求/应答
+
+- (void)refreshQuakeInfo:(NSString *)tag
 {
     QuakeQueryRequest *request = [[QuakeQueryRequest alloc] init];
     request.minmag = 4.9;
@@ -173,8 +261,14 @@
     dateFormate.dateFormat = @"yyyy-MM-dd";
     request.starttime = [dateFormate dateFromString:@"2013-09-22"];
     request.endtime = [dateFormate dateFromString:@"2013-10-22"];
+    request.userinfo = tag;
     
     [quakeListControl sendRequest:request target:self selector:@selector(displayUI:)];
+}
+
+- (void)loadmordQuakeInfo
+{
+
 }
 
 - (void)displayUI:(id)note
@@ -182,9 +276,26 @@
     if (![note isKindOfClass:[QuakeFeaturesResponse class]])
         return;
     
-    self.datasource = note;
+    if ([((QuakeFeaturesResponse *)note).userinfo isEqualToString:@"refreshall"]) {
+        
+        [self.datasource clear];
+    }
+    
+    [self.datasource addToDataSource:note];
     
     [self.tableView reloadData];
+}
+
+#pragma mark - 列表刷新相关
+
+-(void)refreshAll
+{
+    [self refreshQuakeInfo:@"refreshall"];
+}
+
+-(void)loadMore
+{
+    [self refreshQuakeInfo:@"loadmore"];
 }
 
 @end

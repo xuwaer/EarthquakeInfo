@@ -15,13 +15,15 @@
     self = [super initWithCommand:kActionCommand_Query type:HttpRequestTypeGet];
     
     if (self) {
-        
-        self.format = @"geojson";
-//        self.alertlevel = @"green";
-        self.eventtype = @"earthquake";
-        self.orderby = @"time";
-        self.reviewstatus = @"reviewed";
-//        self.minsig = 600;
+        _format = @"geojson";
+        //目前只考虑地震数据
+        _eventtype = @"earthquake";
+        //时间排序
+        _orderby = @"time";
+        //发布的
+        _reviewstatus = @"reviewed";
+        //默认请求20条
+        self.limit = 20;
     }
     
     return self;

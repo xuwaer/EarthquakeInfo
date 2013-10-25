@@ -83,6 +83,8 @@
         return [UIColor greenColor];
     else if ([alert isEqualToString:@"yellow"])
         return [UIColor yellowColor];
+    else if ([alert isEqualToString:@"orange"])
+        return [UIColor orangeColor];
     else if ([alert isEqualToString:@"red"])
         return [UIColor redColor];
     else

@@ -40,16 +40,16 @@
     DDLogCVerbose(@"%@(%@)", THIS_FILE, THIS_METHOD);
     
     [self schedule:^{@autoreleasepool{
-        NSDictionary *userinfo = nil;
+        NSDictionary *requestinfo = nil;
         
         if (target && selector) {
             
-            userinfo = [NSDictionary dictionaryWithObjectsAndKeys:target, kTarget, NSStringFromSelector(selector), kSelector, nil];
+            requestinfo = [NSDictionary dictionaryWithObjectsAndKeys:target, kTarget, NSStringFromSelector(selector), kSelector, nil];
         }
         
         ITSStream *stream = [transManager stream];
         if ([stream isKindOfClass:[ITSHttpStream class]]) {
-            [(ITSHttpStream *)stream sendHttpRequest:request userinfo:userinfo];
+            [(ITSHttpStream *)stream sendHttpRequest:request requestInfo:requestinfo];
         }
     }}];
 }
@@ -64,11 +64,11 @@
 {
     DDLogCVerbose(@"%@(%@)tag:%d", NSStringFromClass([self class]), THIS_METHOD, [(id<ITSResponseDelegate>)object tag]);
     
-    NSDictionary *userinfo = ((MKNetworkOperationExt *)opt).userinfo;
+    NSDictionary *requestinfo = ((MKNetworkOperationExt *)opt).requestinfo;
     
-    if (userinfo) {
-        id target = [userinfo objectForKey:kTarget];
-        SEL selector = NSSelectorFromString([userinfo objectForKey:kSelector]);
+    if (requestinfo) {
+        id target = [requestinfo objectForKey:kTarget];
+        SEL selector = NSSelectorFromString([requestinfo objectForKey:kSelector]);
         
         if (target && selector) {
             

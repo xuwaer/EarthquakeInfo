@@ -16,16 +16,18 @@
 
 @property (nonatomic, strong) NSDate *endtime;
 
-@property (nonatomic, strong) NSString *format;
+@property (nonatomic, strong, readonly) NSString *format;
 
 @property (nonatomic, strong) NSString *alertlevel;
 
-@property (nonatomic, strong) NSString *eventtype;
+@property (nonatomic, strong, readonly) NSString *eventtype;
 
-@property (nonatomic, strong) NSString *orderby;
+@property (nonatomic, strong, readonly) NSString *orderby;
 
-@property (nonatomic, strong) NSString *reviewstatus;
+@property (nonatomic, strong, readonly) NSString *reviewstatus;
 
 @property (nonatomic, assign) NSInteger minsig;
+
+@property (nonatomic, assign) NSInteger limit;
 
 @end

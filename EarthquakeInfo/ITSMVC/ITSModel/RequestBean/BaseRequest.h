@@ -50,6 +50,8 @@ enum HttpRequestType {
  */
 @property (nonatomic, strong)NSString *fileKey;
 
+@property (nonatomic, strong)id userinfo;
+
 /**
  *	@brief	初始化请求类
  *

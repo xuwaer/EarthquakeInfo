@@ -14,7 +14,8 @@ enum ALERT_LEVEL {
     ALERT_LEVEL_NONE = 0,
     ALERT_LEVEL_GREEN = 1,
     ALERT_LEVEL_YELLOW = 2,
-    ALERT_LEVEL_RED = 3
+    ALERT_LEVEL_ORANGE = 3,
+    ALERT_LEVEL_RED = 4
     };
 
 @implementation QuakeCell
@@ -71,6 +72,8 @@ enum ALERT_LEVEL {
         [self setAnimate:ALERT_LEVEL_GREEN];
     else if (feature.alert == [UIColor yellowColor])
         [self setAnimate:ALERT_LEVEL_YELLOW];
+    else if (feature.alert == [UIColor orangeColor])
+        [self setAnimate:ALERT_LEVEL_ORANGE];
     else if (feature.alert == [UIColor redColor])
         [self setAnimate:ALERT_LEVEL_RED];
 }
@@ -86,6 +89,9 @@ enum ALERT_LEVEL {
             duration = 1;
             break;
         case ALERT_LEVEL_YELLOW:
+            duration = 0.75;
+            break;
+        case ALERT_LEVEL_ORANGE:
             duration = 0.5;
             break;
         case ALERT_LEVEL_RED:

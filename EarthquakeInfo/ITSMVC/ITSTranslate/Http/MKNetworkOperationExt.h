@@ -10,7 +10,8 @@
 
 @interface MKNetworkOperationExt : MKNetworkOperation
 
-@property (nonatomic, strong) NSDictionary *userinfo;
+@property (nonatomic, strong) id userinfo;
+@property (nonatomic, strong) NSDictionary *requestinfo;
 @property (nonatomic, assign) NSUInteger tag;
 
 @end

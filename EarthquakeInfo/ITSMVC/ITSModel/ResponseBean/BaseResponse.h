@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) NSData *jSONData;
 
+@property (nonatomic, strong) id userinfo;
+
 -(id)initWithJSONData:(NSData *)data;
 
 @end

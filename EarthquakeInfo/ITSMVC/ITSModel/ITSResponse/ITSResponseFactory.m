@@ -37,7 +37,7 @@ static ITSResponseFactory *responseFactory;
  
 }
 
--(id<ITSResponseDelegate>)decode:(NSData *)source tag:(id)tag
+-(id<ITSResponseDelegate>)decode:(NSData *)source tag:(id)tag 
 {
     return nil;
 }

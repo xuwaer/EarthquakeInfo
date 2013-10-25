@@ -8,8 +8,43 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuakeListViewController : UITableViewController
+@class QuakeFeaturesResponse;
 
-@property (nonatomic, strong) id datasource;
+/**
+ *	@brief	数据源对象
+ */
+@interface QuakeDataSource : NSObject
+
+@property (nonatomic, strong, readonly) NSDate *endDate;
+
+@property (nonatomic, strong, readonly) NSMutableArray *data;
+
+@property (nonatomic, assign, readonly) NSInteger count;
+
+- (void)addToDataSource:(QuakeFeaturesResponse *)data;
+
+- (id)featureAtIndex:(NSInteger)index;
+
+- (id)firstFeature;
+
+- (id)lastFeature;
+
+- (void)moveCursor:(NSInteger)cursorTo;
+
+- (id)nextFeature;
+
+- (id)previousFeature;
+
+- (void)clear;
+
+@end
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+#import "RefreshTableViewController.h"
+
+@interface QuakeListViewController : RefreshTableViewController
+
+@property (nonatomic, strong) QuakeDataSource *datasource;
 
 @end

@@ -54,7 +54,7 @@
 //-(void)sendPostHttpRequest:(BaseRequest *)requestInfo
 //                  userinfo:(NSDictionary *)userinfo;
 
--(void)sendHttpRequest:(BaseRequest *)requestInfo
-              userinfo:(NSDictionary *)userinfo;
+-(void)sendHttpRequest:(BaseRequest *)request
+              requestInfo:(NSDictionary *)requestinfo;
 
 @end

@@ -64,6 +64,8 @@
 		394C71731815342B0006AD91 /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C71671815342B0006AD91 /* MKNetworkEngine.m */; };
 		394C71741815342B0006AD91 /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C716A1815342B0006AD91 /* MKNetworkOperation.m */; };
 		394C71751815342B0006AD91 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C716C1815342B0006AD91 /* Reachability.m */; };
+		396DA830181E3C1600AC64E3 /* InfoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 396DA82F181E3C1500AC64E3 /* InfoAnnotation.m */; };
+		396DA833181E5F9400AC64E3 /* HazardsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 396DA832181E5F9400AC64E3 /* HazardsDataSource.m */; };
 		398B4086181A52D9009AC5B6 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B4085181A52D9009AC5B6 /* KxMenu.m */; };
 		398B4088181A562E009AC5B6 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398B4087181A562E009AC5B6 /* Image.xcassets */; };
 		398B4099181A5971009AC5B6 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 398B4093181A5971009AC5B6 /* menu.png */; };
@@ -202,6 +204,10 @@
 		394C716A1815342B0006AD91 /* MKNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkOperation.m; sourceTree = "<group>"; };
 		394C716B1815342B0006AD91 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		394C716C1815342B0006AD91 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		396DA82E181E3C1500AC64E3 /* InfoAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAnnotation.h; sourceTree = "<group>"; };
+		396DA82F181E3C1500AC64E3 /* InfoAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAnnotation.m; sourceTree = "<group>"; };
+		396DA831181E5F9400AC64E3 /* HazardsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HazardsDataSource.h; sourceTree = "<group>"; };
+		396DA832181E5F9400AC64E3 /* HazardsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HazardsDataSource.m; sourceTree = "<group>"; };
 		398B4084181A52D9009AC5B6 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		398B4085181A52D9009AC5B6 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
 		398B4087181A562E009AC5B6 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
@@ -582,6 +588,8 @@
 				394C7134181512410006AD91 /* Constant.m */,
 				398B40A3181A76E2009AC5B6 /* AppData.h */,
 				398B40A4181A76E2009AC5B6 /* AppData.m */,
+				396DA831181E5F9400AC64E3 /* HazardsDataSource.h */,
+				396DA832181E5F9400AC64E3 /* HazardsDataSource.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -616,6 +624,8 @@
 			children = (
 				398B40A0181A6FEC009AC5B6 /* MapViewController.h */,
 				398B40A1181A6FEC009AC5B6 /* MapViewController.m */,
+				396DA82E181E3C1500AC64E3 /* InfoAnnotation.h */,
+				396DA82F181E3C1500AC64E3 /* InfoAnnotation.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -789,6 +799,7 @@
 				394C7109181509310006AD91 /* ITSHttpQueueModule.m in Sources */,
 				394C710A181509310006AD91 /* ITSHttpStream.m in Sources */,
 				394C7114181509310006AD91 /* MKNetworkOperationExt.m in Sources */,
+				396DA830181E3C1600AC64E3 /* InfoAnnotation.m in Sources */,
 				394C71751815342B0006AD91 /* Reachability.m in Sources */,
 				394C714E181517E00006AD91 /* DDTTYLogger.m in Sources */,
 				394C71721815342B0006AD91 /* UIImageView+MKNetworkKitAdditions.m in Sources */,
@@ -825,6 +836,7 @@
 				394C714F181517E00006AD91 /* ContextFilterLogFormatter.m in Sources */,
 				398B40A2181A6FEC009AC5B6 /* MapViewController.m in Sources */,
 				394C714A181517E00006AD91 /* DDAbstractDatabaseLogger.m in Sources */,
+				396DA833181E5F9400AC64E3 /* HazardsDataSource.m in Sources */,
 				394C7108181509310006AD91 /* ITSTransManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

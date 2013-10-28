@@ -9,7 +9,14 @@
 #import "MapViewController.h"
 #import "KxMenu/KxMenu.h"
 
+#import "HazardsDataSource.h"
+#import "QuakeFeature.h"
+
+#import "InfoAnnotation.h"
+
 @interface MapViewController ()
+
+@property (nonatomic, strong) NSMutableArray *hazardsAnnotations;
 
 @end
 
@@ -34,11 +41,13 @@
         self.navigationBar.frame = CGRectMake(oldNaviFrame.origin.x, oldNaviFrame.origin.y, oldNaviFrame.size.width, 64);
     }
     
+    // 添加弹出菜单
     UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(showmenu:)];
-    
     UINavigationItem *item = [self.navigationBar.items objectAtIndex:0];
     item.rightBarButtonItem = menuItem;
 }
+
+#pragma mark - 弹出菜单相关动作
 
 - (void)showmenu:(id)sender
 {
@@ -77,6 +86,31 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 地图标注相关
+
+- (void)showHazards:(HazardsDataSource *)inDatasource
+{
+    if (self.hazardsAnnotations) {
+        [self.mapView removeAnnotations:self.hazardsAnnotations];
+        [self.hazardsAnnotations removeAllObjects];
+    }
+    
+    if (inDatasource != nil)
+        self.datasource = inDatasource;
+    
+    if (self.datasource == nil || [self.datasource count] <= 0)
+        return;
+    
+    for (int i = 0; i < self.datasource.data.count; i++) {
+        
+        QuakeFeature *feature = [self.datasource featureAtIndex:i];
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(feature.geoemtry.latitude, feature.geoemtry.longitude);
+        InfoAnnotation *annotation = [[InfoAnnotation alloc] initWithCoordinate:coordinate];
+        [self.mapView addAnnotation:annotation];
+        [self.hazardsAnnotations addObject:annotation];
+    }
 }
 
 @end

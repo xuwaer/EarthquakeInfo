@@ -10,4 +10,9 @@
 
 @implementation Constant
 
++(NSDictionary *)defaultSetting
+{
+    return nil;
+}
+
 @end

@@ -78,11 +78,14 @@
 		398B40A5181A76E2009AC5B6 /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B40A4181A76E2009AC5B6 /* AppData.m */; };
 		398B40A8181A7E3F009AC5B6 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 398B40A6181A7E3F009AC5B6 /* comment.png */; };
 		398B40A9181A7E3F009AC5B6 /* comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 398B40A7181A7E3F009AC5B6 /* comment@2x.png */; };
+		398B67891820F11B003EE310 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B67881820F11B003EE310 /* SearchController.m */; };
 		398C36D718190784007167A6 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 398C36CF18190784007167A6 /* MJRefresh.bundle */; };
 		398C36D818190784007167A6 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 398C36D218190784007167A6 /* MJRefreshBaseView.m */; };
 		398C36D918190784007167A6 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 398C36D418190784007167A6 /* MJRefreshFooterView.m */; };
 		398C36DA18190784007167A6 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 398C36D618190784007167A6 /* MJRefreshHeaderView.m */; };
 		398C36E018191CB0007167A6 /* RefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398C36DF18191CB0007167A6 /* RefreshTableViewController.m */; };
+		398CAE0D181F5874005851F9 /* ZSPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CAE0C181F5874005851F9 /* ZSPinAnnotation.m */; };
+		398CAE0F181F5E7A005851F9 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398CAE0E181F5E7A005851F9 /* CoreImage.framework */; };
 		398FCBEE18160B6700639554 /* QuakeFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 398FCBED18160B6700639554 /* QuakeFeature.m */; };
 		398FCBF118160B8E00639554 /* QuakeFeaturesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 398FCBF018160B8E00639554 /* QuakeFeaturesResponse.m */; };
 		398FCBF4181647D800639554 /* NSNull+Fix.m in Sources */ = {isa = PBXBuildFile; fileRef = 398FCBF3181647D800639554 /* NSNull+Fix.m */; };
@@ -223,6 +226,8 @@
 		398B40A4181A76E2009AC5B6 /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppData.m; sourceTree = "<group>"; };
 		398B40A6181A7E3F009AC5B6 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
 		398B40A7181A7E3F009AC5B6 /* comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment@2x.png"; sourceTree = "<group>"; };
+		398B67871820F11B003EE310 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController.h; sourceTree = "<group>"; };
+		398B67881820F11B003EE310 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController.m; sourceTree = "<group>"; };
 		398C36CF18190784007167A6 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		398C36D018190784007167A6 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		398C36D118190784007167A6 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
@@ -233,6 +238,9 @@
 		398C36D618190784007167A6 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
 		398C36DE18191CB0007167A6 /* RefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshTableViewController.h; sourceTree = "<group>"; };
 		398C36DF18191CB0007167A6 /* RefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTableViewController.m; sourceTree = "<group>"; };
+		398CAE0B181F5874005851F9 /* ZSPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSPinAnnotation.h; sourceTree = "<group>"; };
+		398CAE0C181F5874005851F9 /* ZSPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSPinAnnotation.m; sourceTree = "<group>"; };
+		398CAE0E181F5E7A005851F9 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		398FCBEC18160B6700639554 /* QuakeFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuakeFeature.h; sourceTree = "<group>"; };
 		398FCBED18160B6700639554 /* QuakeFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuakeFeature.m; sourceTree = "<group>"; };
 		398FCBEF18160B8E00639554 /* QuakeFeaturesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuakeFeaturesResponse.h; sourceTree = "<group>"; };
@@ -248,6 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				398CAE0F181F5E7A005851F9 /* CoreImage.framework in Frameworks */,
 				394C712918150CFC0006AD91 /* libstdc++.dylib in Frameworks */,
 				394C712718150CF10006AD91 /* libz.1.2.5.dylib in Frameworks */,
 				394C712518150CDD0006AD91 /* SystemConfiguration.framework in Frameworks */,
@@ -295,6 +304,7 @@
 		394C70451814F9720006AD91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				398CAE0E181F5E7A005851F9 /* CoreImage.framework */,
 				394C712818150CFC0006AD91 /* libstdc++.dylib */,
 				394C712618150CF10006AD91 /* libz.1.2.5.dylib */,
 				394C712418150CDD0006AD91 /* SystemConfiguration.framework */,
@@ -357,6 +367,7 @@
 		394C707D181509100006AD91 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				398B67861820F0EF003EE310 /* Search */,
 				398B409F181A6FC7009AC5B6 /* Map */,
 				398FCBF91816506100639554 /* Main */,
 				398FCBF81816504500639554 /* Quake List */,
@@ -630,9 +641,19 @@
 			name = Map;
 			sourceTree = "<group>";
 		};
+		398B67861820F0EF003EE310 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				398B67871820F11B003EE310 /* SearchController.h */,
+				398B67881820F11B003EE310 /* SearchController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		398C36CD18190762007167A6 /* Custom View */ = {
 			isa = PBXGroup;
 			children = (
+				398CAE0A181F5874005851F9 /* ZSPinAnnotation */,
 				398B4083181A52D9009AC5B6 /* KxMenu */,
 				398C36CE18190784007167A6 /* MJRefresh */,
 			);
@@ -654,6 +675,15 @@
 				398C36D618190784007167A6 /* MJRefreshHeaderView.m */,
 			);
 			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		398CAE0A181F5874005851F9 /* ZSPinAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				398CAE0B181F5874005851F9 /* ZSPinAnnotation.h */,
+				398CAE0C181F5874005851F9 /* ZSPinAnnotation.m */,
+			);
+			path = ZSPinAnnotation;
 			sourceTree = "<group>";
 		};
 		398FCBF81816504500639554 /* Quake List */ = {
@@ -800,6 +830,7 @@
 				394C710A181509310006AD91 /* ITSHttpStream.m in Sources */,
 				394C7114181509310006AD91 /* MKNetworkOperationExt.m in Sources */,
 				396DA830181E3C1600AC64E3 /* InfoAnnotation.m in Sources */,
+				398CAE0D181F5874005851F9 /* ZSPinAnnotation.m in Sources */,
 				394C71751815342B0006AD91 /* Reachability.m in Sources */,
 				394C714E181517E00006AD91 /* DDTTYLogger.m in Sources */,
 				394C71721815342B0006AD91 /* UIImageView+MKNetworkKitAdditions.m in Sources */,
@@ -838,6 +869,7 @@
 				394C714A181517E00006AD91 /* DDAbstractDatabaseLogger.m in Sources */,
 				396DA833181E5F9400AC64E3 /* HazardsDataSource.m in Sources */,
 				394C7108181509310006AD91 /* ITSTransManager.m in Sources */,
+				398B67891820F11B003EE310 /* SearchController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

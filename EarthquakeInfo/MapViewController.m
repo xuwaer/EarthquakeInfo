@@ -13,6 +13,7 @@
 #import "QuakeFeature.h"
 
 #import "InfoAnnotation.h"
+#import "ZSPinAnnotation.h"
 
 @interface MapViewController ()
 
@@ -36,15 +37,15 @@
     [super viewDidLoad];
     
     // iOS7调整导航栏高度
-    if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
-        CGRect oldNaviFrame = self.navigationBar.frame;
-        self.navigationBar.frame = CGRectMake(oldNaviFrame.origin.x, oldNaviFrame.origin.y, oldNaviFrame.size.width, 64);
-    }
-    
-    // 添加弹出菜单
+//    if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
+//        CGRect oldNaviFrame = self.navigationBar.frame;
+//        self.navigationBar.frame = CGRectMake(oldNaviFrame.origin.x, oldNaviFrame.origin.y, oldNaviFrame.size.width, 64);
+//    }
+//    
+//    // 添加弹出菜单
     UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(showmenu:)];
-    UINavigationItem *item = [self.navigationBar.items objectAtIndex:0];
-    item.rightBarButtonItem = menuItem;
+    menuItem.tag = 987;
+    self.navigationItem.rightBarButtonItem = menuItem;
 }
 
 #pragma mark - 弹出菜单相关动作
@@ -54,10 +55,15 @@
     CGRect fromRect;
     if ([sender isKindOfClass:[UIBarButtonItem class]]) {
         
-        UIView *view = (UIView *)[self.navigationBar.subviews objectAtIndex:2];
-        fromRect = view.frame;
-        // 调整popover位置
-        fromRect = CGRectMake(fromRect.origin.x, 64, view.frame.size.width, 1);
+        for (UIView *view in self.navigationController.navigationBar.subviews) {
+
+            if ([view isKindOfClass:[UIButton class]]) {
+                fromRect = view.frame;
+                // 调整popover位置
+                fromRect = CGRectMake(fromRect.origin.x, 64, view.frame.size.width, 1);
+                break;
+            }
+        }
     }
     else {
         fromRect = ((UIView *)sender).frame;
@@ -79,7 +85,7 @@
 
 - (void)setSearch:(id)sender
 {
-    
+    [self performSegueWithIdentifier:@"mapsearch" sender:sender];
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,11 +112,63 @@
     for (int i = 0; i < self.datasource.data.count; i++) {
         
         QuakeFeature *feature = [self.datasource featureAtIndex:i];
-        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(feature.geoemtry.latitude, feature.geoemtry.longitude);
-        InfoAnnotation *annotation = [[InfoAnnotation alloc] initWithCoordinate:coordinate];
+        InfoAnnotation *annotation = [[InfoAnnotation alloc] initWithFeature:feature];
         [self.mapView addAnnotation:annotation];
         [self.hazardsAnnotations addObject:annotation];
     }
+}
+
+//-(void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+//{
+//    for (MKPinAnnotationView *aView in views) {
+//        
+//        aView.pinColor = MKPinAnnotationColorGreen;
+//        aView.animatesDrop = YES;
+//        aView.canShowCallout = NO;
+//        aView.rightCalloutAccessoryView = NO;
+//    }
+//}
+
+- (MKMapRect)makeMapRectWithAnnotations:(NSArray *)annotations {
+	
+	MKMapRect flyTo = MKMapRectNull;
+    for (id <MKAnnotation> annotation in annotations) {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+        if (MKMapRectIsNull(flyTo)) {
+            flyTo = pointRect;
+        } else {
+            flyTo = MKMapRectUnion(flyTo, pointRect);
+        }
+    }
+	
+	return flyTo;
+	
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    if(![annotation isKindOfClass:[InfoAnnotation class]])
+        return nil;
+    
+    InfoAnnotation *infoAnnotation = (InfoAnnotation *)annotation;
+    static NSString *defaultPinID = @"StandardIdentifier";
+    
+    // Create the ZSPinAnnotation object and reuse it
+    ZSPinAnnotation *pinView = (ZSPinAnnotation *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
+    if (pinView == nil){
+        pinView = [[ZSPinAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID];
+        
+        UIButton *accessory = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        pinView.rightCalloutAccessoryView = accessory;
+    }
+    
+    // Set the type of pin to draw and the color
+    pinView.annotationType = ZSPinAnnotationTypeDisc;
+    pinView.canShowCallout = YES;
+    pinView.annotationColor = infoAnnotation.color;
+
+    return pinView;
 }
 
 @end

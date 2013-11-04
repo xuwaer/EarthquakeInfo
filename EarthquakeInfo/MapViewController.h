@@ -11,9 +11,9 @@
 
 @class HazardsDataSource;
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController<MKMapViewDelegate>
 
-@property (nonatomic, assign) IBOutlet UINavigationBar *navigationBar;
+//@property (nonatomic, assign) IBOutlet UINavigationBar *navigationBar;
 @property (nonatomic, assign) IBOutlet MKMapView *mapView;
 
 @property (nonatomic, strong) HazardsDataSource *datasource;

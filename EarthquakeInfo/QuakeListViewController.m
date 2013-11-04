@@ -128,7 +128,8 @@
 
 - (void)viewInMap:(id)sender
 {
-    [self presentViewController:[AppData appData].mapController animated:YES completion:^{
+    UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:[AppData appData].mapController];
+    [self presentViewController:naviController animated:YES completion:^{
     
         [[AppData appData].mapController showHazards:self.datasource];
     }];
@@ -136,7 +137,7 @@
 
 - (void)setSearch:(id)sender
 {
-
+    [self performSegueWithIdentifier:@"listsearch" sender:sender];
 }
 
 #pragma mark - Table view data source

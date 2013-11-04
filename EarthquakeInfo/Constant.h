@@ -16,6 +16,24 @@
 #define EVENTT_YPE @"earthquake"     //地震
 #endif
 
+#ifndef SettingParam
+#define kSettingParam           @"kSettingParam"
+#define kSettingParamStarttime  @"kSettingParamStarttime"
+#define kSettingParamEndtime    @"kSettingParamEndtime"
+#define kSettingParamMaxmag     @"kSettingParamMaxmag"
+#define kSettingParamMinmag     @"kSettingParamMinmag"
+#define kSettingParamAlert      @"kSettingParamAlert"
+
+#define SettingParamString                  @"kSettingParam"
+#define kSettingParamStringStarttime        @"开始时间"
+#define kSettingParamStringEndtime          @"结束时间"
+#define kSettingParamStringMaxmag           @"最大震级"
+#define kSettingParamStringMinmag           @"最小震级"
+#define kSettingParamStringAlert            @"筛   选"
+#endif
+
 @interface Constant : NSObject
+
++ (NSDictionary *)defaultSetting;
 
 @end
